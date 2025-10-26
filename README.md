@@ -1,0 +1,1 @@
+# csvnest-stock-lite-2.0
