@@ -1,22 +1,5 @@
-# CSVNest Stock Lite 2.0
-
-মাল্টি-ফাইল (SVG/PNG/JPG) আপলোড করে টাইটেল/কিওয়ার্ড/ডিসক্রিপশন/ক্যাটাগরি এডিট করুন এবং **Adobe Stock-ready CSV** এক্সপোর্ট করুন — সবকিছু ব্রাউজারেই, অফলাইন।
-
-## কী আছে
-- Drag & Drop বা বাটন দিয়ে **একসাথে অনেক ফাইল** আপলোড
-- থাম্বনেইল/ফাইল-ইনফো + এডিটেবল টেবিল
-- Bulk helpers: Title from filename, Prefix/Suffix, Keywords from filename
-- Keywords separator কাস্টম (`,`, `|`, `;`)
-- Export: **Adobe Stock** CSV অথবা Generic CSV
-
-## ব্যবহার
-- `index.html` ওপেন করুন (লোকাল বা যেকোনো স্ট্যাটিক হোস্টে)  
-- ফাইল আপলোড করুন → টেবিলে মেটাডাটা এডিট করুন → **Export CSV**
-
-## নোট
-- বড় ব্যাচে (৫০০+ ফাইল) ব্রাউজার RAM দেখেশুনে ব্যবহার করুন
-- SVG প্রিভিউ ইনলাইন রেন্ডার হয়, অন্যান্য ইমেজ থাম্বনেইল হিসেবে লোড হয়
-- কীওয়ার্ড ডেডুপ + 49 টি পর্যন্ত রাখে (Adobe Stock প্রচলিত সীমা)
-
-## লাইসেন্স
-MIT
+# CSVNest Stock Lite 2.0 Enhanced
+এই সংস্করণে আগের সব ফিচারের সাথে যোগ হয়েছে:
+- Title Length Slider (10–120)
+- Keywords Count Slider (5–50)
+- Bulk Add Keyword Option (ডুপ্লিকেট রিমুভসহ)
