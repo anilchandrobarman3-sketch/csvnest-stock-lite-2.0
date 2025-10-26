@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSVNest Stock Lite 2.0 — Bulk Metadata → CSV</title>
+  <meta name="description" content="Upload multiple SVG/PNG/JPG files, edit metadata, and export Adobe Stock-ready CSV — all offline.">
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.39 4.84L20 8.26l-4 3.9.94 5.48L12 15.77 7.06 17.64 8 12.16l-4-3.9 5.61-1.42L12 2z" fill="currentColor"/></svg>
+      <span>CSVNest <em>Stock Lite</em> <small>v2.0</small></span>
+    </div>
+    <nav class="actions">
+      <label class="btn primary btn-file">
+        <input id="fileInput" type="file" multiple accept=".svg,.png,.jpg,.jpeg,.webp" hidden>
+        ফাইল আপলোড
+      </label>
+      <button id="btnClear" class="btn danger">ক্লিয়ার</button>
+      <a class="btn ghost" href="README.md" target="_blank" rel="noopener">ডকুমেন্টেশন</a>
+    </nav>
+  </header>
+
+  <main class="layout">
+    <aside class="sidebar">
+      <div class="card">
+        <h3>Generation Controls</h3>
+        <div class="group">
+          <label>Export Platform</label>
+          <select id="platform">
+            <option value="adobe">Adobe Stock (St)</option>
+            <option value="generic">Generic (Filename, Title, Keywords, Description)</option>
+          </select>
+        </div>
+        <div class="group">
+          <label>Keywords Separator</label>
+          <select id="kwSep">
+            <option value=",">Comma (,)</option>
+            <option value="|">Pipe (|)</option>
+            <option value=";">Semicolon (;)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Advance Metadata</h3>
+        <div class="group">
+          <label>Bulk: Title = filename (no ext)</label>
+          <button id="bulkTitleFromName" class="btn small">Apply</button>
+        </div>
+        <div class="group">
+          <label>Bulk: add prefix</label>
+          <div class="row">
+            <input id="prefixInput" type="text" placeholder="e.g., Vector, Minimal, Christmas">
+            <button id="bulkPrefix" class="btn small">Add</button>
+          </div>
+        </div>
+        <div class="group">
+          <label>Bulk: add suffix</label>
+          <div class="row">
+            <input id="suffixInput" type="text" placeholder="e.g., Icon, Poster, T-shirt">
+            <button id="bulkSuffix" class="btn small">Add</button>
+          </div>
+        </div>
+        <div class="group">
+          <label>Bulk: keywords from filename</label>
+          <button id="bulkKeywordsFromName" class="btn small">Generate</button>
+          <p class="hint">Split by -, _, space. Auto-unique, lowercase.</p>
+        </div>
+        <div class="group">
+          <label>Category (optional, all rows)</label>
+          <input id="bulkCategory" type="text" placeholder="e.g., Nature, Vector, Background">
+        </div>
+        <div class="group">
+          <button id="exportCSV" class="btn primary">Export CSV</button>
+        </div>
+      </div>
+    </aside>
+
+    <section class="content">
+      <div class="card dropzone" id="dropzone">
+        <div class="dz-inner">
+          <div class="icons">
+            <span class="pill">Images</span>
+            <span class="pill">Videos</span>
+            <span class="pill">SVG</span>
+          </div>
+          <h2>Drag & drop files here, or click to select</h2>
+          <p class="hint">Supports SVG, PNG, JPG, WEBP. Max ~1000 files (browser memory permitting). Offline only.</p>
+        </div>
+      </div>
+
+      <div id="toolbar" class="toolbar hidden">
+        <span id="fileCount">0 files</span>
+        <div class="spacer"></div>
+        <button id="selectAll" class="btn small ghost">Select All</button>
+        <button id="deselectAll" class="btn small ghost">Deselect</button>
+        <button id="deleteSelected" class="btn small danger">Delete Selected</button>
+      </div>
+
+      <div id="tableWrap" class="card table-wrap hidden">
+        <div id="tableContainer"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>Built as a lightweight, offline tool for bulk metadata → CSV. No server, no tracking.</span>
+  </footer>
+
+  <script src="assets/csv.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+</html>
